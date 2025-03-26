@@ -1,10 +1,11 @@
+// models/Proyecto.js
 const mongoose = require('mongoose');
 
 const proyectoSchema = new mongoose.Schema({
   nombre: { type: String, required: true },
-  descripcion: String,
-  fecha_inicio: { type: Date, required: true },
-  empresa_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Empresa', required: true }
+  descripcion: { type: String, required: true },
+  empresa: { type: mongoose.Schema.Types.ObjectId, ref: 'Empresa' },
 });
 
-module.exports = mongoose.model('Proyecto', proyectoSchema);
+const Proyecto = mongoose.model('Proyecto', proyectoSchema);
+module.exports = Proyecto;

@@ -1,9 +1,11 @@
+// models/Empresa.js
 const mongoose = require('mongoose');
+
 const empresaSchema = new mongoose.Schema({
   nombre: { type: String, required: true },
-  sector: { type: String, required: true },
-  direccion: String,
-  telefono: String
+  rubro: { type: String, required: true },
+  direccion: { type: String, required: true },
 });
 
-module.exports = mongoose.model('Empresa', empresaSchema);
+const Empresa = mongoose.model('Empresa', empresaSchema);
+module.exports = Empresa;

@@ -1,32 +1,288 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/styles.css">
   <title>Gestión de Empresas</title>
+  
+  <style>
+    /* Paleta de Colores */
+    :root {
+      --amarillo-claro: #F7E7C8;
+      --amarillo-dorado: #F7D54F;
+      --naranja-suave: #F9A825;
+      --naranja-intenso: #F57F17;
+      --rojo-coral: #F44336;
+      --violeta-claro: #AB47BC;
+      --violeta-oscuro: #8E24AA;
+      --azul-claro: #42A5F5;
+      --azul-oscuro: #1E88E5;
+      --celeste: #00ACC1;
+      --verde-claro: #66BB6A;
+      --verde-oscuro: #388E3C;
+    }
+
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--amarillo-claro);
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: var(--verde-oscuro); /* Verde oscuro */
+    }
+
+    /* Navbar */
+    header {
+      background-color: var(--azul-oscuro); /* Azul oscuro */
+      padding: 15px;
+      text-align: center;
+      color: white;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    /* Contenido principal */
+    main {
+      padding: 20px;
+    }
+
+    /* Sección bienvenida */
+    .bienvenida {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .bienvenida h2 {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+
+    .bienvenida p {
+      font-size: 1.2em;
+    }
+
+    /* Formularios */
+    .formulario {
+      margin-bottom: 30px;
+    }
+
+    .formulario form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .formulario label {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .formulario button {
+      padding: 10px 20px;
+      background-color: var(--verde-oscuro); /* Verde oscuro */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .formulario button:hover {
+      background-color: var(--verde-claro); /* Verde claro */
+    }
+
+    /* Listas de Empresas, Empleados y Proyectos */
+    .listas {
+      margin-top: 30px;
+    }
+
+    .lista {
+      margin-bottom: 20px;
+    }
+
+    .lista h3 {
+      font-size: 1.5em;
+      color: var(--naranja-suave); /* Naranja suave */
+    }
+
+    .lista ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .lista li {
+      padding: 8px;
+      background-color: #fff;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--naranja-intenso); /* Naranja intenso */
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+  </style>
 </head>
 <body>
+
+  <!-- Navbar -->
   <header>
-    <h1>Gestión de Empresas</h1>
-    <nav>
-      <a href="agregar_empresa.html">Agregar Empresa</a>
-      <a href="listar_empresas.html">Listar Empresas</a>
-      <a href="agregar_empleado.html">Agregar Empleado</a>
-      <a href="listar_empleados.html">Listar Empleados</a>
-      <a href="agregar_proyecto.html">Agregar Proyecto</a>
-      <a href="listar_proyectos.html">Listar Proyectos</a>
+    <nav class="navbar">
+      <h1>Gestión de Empresas</h1>
     </nav>
   </header>
 
+  <!-- Contenido Principal -->
   <main>
-    <h2>Bienvenido al sistema de gestión de empresas</h2>
-    <p>Desde aquí puedes agregar, listar y gestionar tus empresas, empleados y proyectos.</p>
+    <section class="bienvenida">
+      <h2>Bienvenido al sistema de gestión de empresas</h2>
+      <p>Desde aquí puedes agregar, listar y gestionar tus empresas, empleados y proyectos.</p>
+    </section>
+
+    <!-- Formulario para agregar una empresa -->
+    <section class="formulario">
+      <h2>Agregar Nueva Empresa</h2>
+      <form>
+        <label for="nombre_empresa">Nombre de la Empresa:</label>
+        <input type="text" id="nombre_empresa" name="nombre_empresa" required>
+
+        <label for="rubro_empresa">Rubro:</label>
+        <input type="text" id="rubro_empresa" name="rubro_empresa" required>
+
+        <label for="direccion_empresa">Dirección:</label>
+        <input type="text" id="direccion_empresa" name="direccion_empresa" required>
+
+        <button type="submit">Agregar Empresa</button>
+      </form>
+    </section>
+
+    <!-- Formulario para agregar un empleado -->
+    <section class="formulario">
+      <h2>Agregar Nuevo Empleado</h2>
+      <form>
+        <label for="nombre_empleado">Nombre del Empleado:</label>
+        <input type="text" id="nombre_empleado" name="nombre_empleado" required>
+
+        <label for="cargo_empleado">Cargo:</label>
+        <input type="text" id="cargo_empleado" name="cargo_empleado" required>
+
+        <label for="empresa_empleado">Empresa:</label>
+        <input type="text" id="empresa_empleado" name="empresa_empleado" required>
+
+        <button type="submit">Agregar Empleado</button>
+      </form>
+    </section>
+
+    <!-- Formulario para agregar un proyecto -->
+    <section class="formulario">
+      <h2>Agregar Nuevo Proyecto</h2>
+      <form>
+        <label for="nombre_proyecto">Nombre del Proyecto:</label>
+        <input type="text" id="nombre_proyecto" name="nombre_proyecto" required>
+
+        <label for="descripcion_proyecto">Descripción:</label>
+        <textarea id="descripcion_proyecto" name="descripcion_proyecto" required></textarea>
+
+        <label for="empresa_proyecto">Empresa:</label>
+        <input type="text" id="empresa_proyecto" name="empresa_proyecto" required>
+
+        <button type="submit">Agregar Proyecto</button>
+      </form>
+    </section>
+
+    <!-- Lista de Empresas, Empleados y Proyectos -->
+    <section class="listas">
+      <h2>Empresas, Empleados y Proyectos</h2>
+
+      <div class="lista">
+        <h3>Lista de Empresas:</h3>
+        <ul id="listaEmpresas">
+          <!-- Las empresas se cargarán aquí dinámicamente -->
+        </ul>
+      </div>
+
+      <div class="lista">
+        <h3>Lista de Empleados:</h3>
+        <ul id="listaEmpleados">
+          <!-- Los empleados se cargarán aquí dinámicamente -->
+        </ul>
+      </div>
+
+      <div class="lista">
+        <h3>Lista de Proyectos:</h3>
+        <ul id="listaProyectos">
+          <!-- Los proyectos se cargarán aquí dinámicamente -->
+        </ul>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Gestión de Empresas</p>
+    <p>&copy; 2025 Gestión de Empresas. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // Obtener los datos de la base de datos y mostrarlos en las listas
+    fetch('/api/datos')
+      .then(response => response.json())
+      .then(data => {
+        // Empresas
+        const listaEmpresas = document.getElementById('listaEmpresas');
+        data.empresas.forEach(empresa => {
+          const li = document.createElement('li');
+          li.textContent = empresa.nombre;
+          listaEmpresas.appendChild(li);
+        });
+
+        // Empleados
+        const listaEmpleados = document.getElementById('listaEmpleados');
+        data.empleados.forEach(empleado => {
+          const li = document.createElement('li');
+          li.textContent = `${empleado.nombre} (${empleado.cargo}) - ${empleado.empresa.nombre}`;
+          listaEmpleados.appendChild(li);
+        });
+
+        // Proyectos
+        const listaProyectos = document.getElementById('listaProyectos');
+        data.proyectos.forEach(proyecto => {
+          const li = document.createElement('li');
+          li.textContent = `${proyecto.nombre} - ${proyecto.descripcion} (${proyecto.empresa.nombre})`;
+          listaProyectos.appendChild(li);
+        });
+      })
+      .catch(error => console.error('Error al cargar los datos:', error));
+  </script>
+
 </body>
 </html>
