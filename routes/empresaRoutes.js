@@ -1,5 +1,5 @@
 const express = require('express');
-const Empresa = require('./models/empresa');
+const Empresa = require("../models/empresa");
 const router = express.Router();
 
 // Crear empresa
